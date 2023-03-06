@@ -16,7 +16,11 @@ export function App() {
   }
 
   function countPositiveFeedbackPercentage() {
-    return `${good || bad ? ((good / (good + bad)) * 100).toFixed(0) : 0}%`;
+    return `${
+      countTotalFeedback()
+        ? (((good + neutral) / countTotalFeedback()) * 100).toFixed(0)
+        : 0
+    }%`;
   }
 
   function onLeaveFeedback(optionName) {
